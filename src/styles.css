@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* // +-----------------------------------------------------------+
+//                          Font-Face
+// +-----------------------------------------------------------+ */
+
+/* barlow-condensed-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Barlow Condensed";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../src/fonts/barlow-condensed-v12-latin-regular.woff2")
+    format("woff2");
+}
+
+/* bellefair-regular - latin */
+@font-face {
+  font-display: swap;
+  font-family: "Bellefair";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../src/fonts/bellefair-v14-latin-regular.woff2") format("woff2");
+}
+
+/* // +-----------------------------------------------------------+
+//                         Custom Styling 
+// +-----------------------------------------------------------+ */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.home__explore--button::before {
+  content: "";
+  position: absolute;
+  background-color: white;
+  opacity: 0;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  width: 65px;
+  height: 65px;
+  transform: translate(-50%, -50%) scale(1); /* État initial */
+  z-index: -1;
+  transition: opacity 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55),
+    transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.home__explore--button:hover::before {
+  opacity: 0.2;
+  transform: translate(-50%, -50%) scale(4.25); /* État hover */
+}
+@media (max-width: 768px) {
+  .home__nav__list-item {
+    height: 19px;
+    width: 100%;
+  }
+
+  .home__nav__link {
+    position: relative;
+    width: 100%;
+    height: 19px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .home__nav__link::after {
+    position: absolute;
+    content: "";
+    height: 19px;
+    border-right: 3px solid white;
+    right: 0;
+    top: 0;
+    z-index: 99;
+    transform: scaleY(0);
+    transform-origin: center;
+    transition: transform 0.1s ease-in;
+  }
+
+  .home__nav__link:focus::after,
+  .home__nav__link:focus-visible::after,
+  .home__nav__link:active::after,
+  .home__nav__link:hover::after {
+    transform: scaleY(1);
+  }
+}
+
+@media (min-width: 768px) {
+  .home__nav__list--container {
+    position: relative;
+  }
+
+  .home__nav__list-item {
+    height: 100%;
+  }
+
+  .home__nav__link {
+    position: relative;
+    display: flex; /* Rendre le lien flexible */
+    align-items: center; /* Centrer le contenu verticalement */
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .home__nav__link::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    border-bottom: 3px solid white;
+    left: 0%;
+    right: 50%;
+    bottom: 0;
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    color: #ffffff17;
+  }
+
+  .home__nav__link:focus::after,
+  .home__nav__link:focus-visible::after,
+  .home__nav__link:active::after,
+  .home__nav__link:hover::after {
+    opacity: 80%;
+  }
+}
