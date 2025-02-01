@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="front end exercise about an integration of a spaceship website tourism"
+    />
+    <meta
+      name="keywords"
+      content="web development, frontendmentor, html, javascript, space, tailwind, tourism"
+    />
+    <title>Frontend Mentor | Space tourism website</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/favicon-32x32.png"
+    />
+    <link href="../dist/styles.css" rel="stylesheet" />
+  </head>
+  <body
+    class="container box-border flex flex-col items-center text-customWhite min-h-screen max-h-screen mx-auto w-full bg-[url('../assets/destination/background-destination-desktop.jpg')] tablet:bg-[url('../assets/destination/background-destination-tablet.jpg')] desktop:bg-[url('../assets/destination/background-destination-desktop.jpg')] bg-no-repeat bg-cover bg-top overflow-hidden desktop:max-w-none desktop:px-0 desktop:mx-0"
+  >
+    <header
+      class="box-border h-[5.5rem] tablet:h-24 px-6 tablet:pl-10 desktop:pl-16 py-6 tablet:py-0 desktop:mt-10 inline-flex justify-between items-center w-full"
+    >
+      <div
+        class="home__logo__container tablet:h-24 flex flex-row items-center after::-inset-1 after::block after::backdrop-blur-xl"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="48"
+          height="48"
+          class="scale-[0.83333] tablet:scale-100"
+          aria-label="logo de l'entreprise"
+        >
+          <g fill="none" fill-rule="evenodd">
+            <circle cx="24" cy="24" r="24" fill="#FFF" />
+            <path
+              fill="#0B0D17"
+              d="M24 0c0 16-8 24-24 24 15.718.114 23.718 8.114 24 24 0-16 8-24 24-24-16 0-24-8-24-24z"
+            />
+          </g>
+        </svg>
+      </div>
+      <!-- Mobile  Menu  -->
+      <nav class="mobile-menu mobile-menu md:hidden" aria-hidden="false">
+        <!-- Mobile burger menu button -->
+        <button
+          type="button"
+          aria-label="open menu"
+          aria-hidden="false"
+          class="btn-open btn"
+          onclick="openModal()"
+        >
+          <img
+            src="../assets/shared/icon-hamburger.svg"
+            alt="hamburger menu button"
+          />
+        </button>
+        <ul
+          id="myModal"
+          class="modal-content z-50 hidden pr-0 fixed inset-y-0 w-[254px] bg-white/10 backdrop-blur-xl p-6 flex-col items-start transition-all duration-1200"
+          aria-hidden="true"
+        >
+          <li class="mt-24 mb-8 home__nav__list-item">
+            <a
+              id="myModalFirstItem"
+              href="#HOME"
+              tabindex="0"
+              autofocus
+              target="_blank"
+              class="desktop-text-preset-8 font-bold focus:outline-none home__nav__link"
+              >00 <span class="ml-2 desktop-text-preset-8"> HOME</span></a
+            >
+          </li>
+          <li class="mb-8 home__nav__list-item">
+            <a
+              href="#destination"
+              target="_blank"
+              class="desktop-text-preset-8 font-bold focus:outline-none home__nav__link"
+              >01
+              <span class="ml-2 desktop-text-preset-8"> DESTINATION</span></a
+            >
+          </li>
+          <li class="mb-8 home__nav__list-item">
+            <a
+              href="#crew"
+              target="_blank"
+              class="desktop-text-preset-8 font-bold focus:outline-none home__nav__link"
+              >02 <span class="ml-2 desktop-text-preset-8"> CREW</span></a
+            >
+          </li>
+          <li class="home__nav__list-item">
+            <a
+              href="#technology"
+              target="_blank"
+              class="desktop-text-preset-8 font-bold focus:outline-none home__nav__link"
+              >03 <span class="ml-2 desktop-text-preset-8"> TECHNOLOGY</span></a
+            >
+          </li>
+          <li>
+            <button
+              type="button"
+              aria-label="close menu"
+              class="btn-close focus:outline-customWhite focus-visible:outline-none absolute w-[1.5rem] top-[2rem] right-[1.2rem]"
+              onclick="closeModal()"
+            >
+              <img
+                src="../assets/shared/icon-close.svg"
+                alt="close menu button"
+              />
+            </button>
+          </li>
+        </ul>
+      </nav>
+      <!-- Tablet & Desktop Menu  -->
+      <nav
+        id="myNav"
+        class="desktop-menu hidden md:block fixed right-0 top-0 desktop:top-10 h-full pr-6"
+        aria-hidden="true"
+      >
+        <ul
+          id="myList"
+          class="flex flex-row w-full items-center justify-evenly gap-x-12 h-24 home__nav__list--container before:bg-[#ffffff11] before:absolute before:-inset-1 before:block before:backdrop-blur-xl tablet:before:w-[48.88vw]"
+        >
+          <li class="home__nav__list-item">
+            <a
+              href="#HOME"
+              target="_blank"
+              tabindex="0"
+              autofocus
+              class="desktop-text-preset-8 font-bold focus:outline-none home__nav__link"
+              ><span class="ml-2 desktop-text-preset-8">HOME</span></a
+            >
+          </li>
+          <li class="home__nav__list-item">
+            <a
+              href="#destination"
+              target="_blank"
+              class="desktop-text-preset-8 font-bold focus:outline-none home__nav__link"
+              >01 <span class="ml-2 desktop-text-preset-8">DESTINATION</span></a
+            >
+          </li>
+          <li class="home__nav__list-item">
+            <a
+              href="#crew"
+              target="_blank"
+              class="desktop-text-preset-8 font-bold focus:outline-none home__nav__link"
+              >02 <span class="ml-2 desktop-text-preset-8">CREW</span></a
+            >
+          </li>
+          <li class="home__nav__list-item pr-6">
+            <a
+              href="#technology"
+              target="_blank"
+              class="desktop-text-preset-8 font-bold focus:outline-none home__nav__link"
+              >03 <span class="ml-2 desktop-text-preset-8">TECHNOLOGY</span></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main
+      class="my-6 tablet:my-10 flex flex-col items-center h-full w-full tablet:px-10 desktop:px-40 desktop:h-full desktop:justify-start desktop:flex-grow"
+    >
+      <div class="w-full mobile-text-preset-6 tablet:flex flex-col items-start">
+        <h1
+          class="mobile-text-preset-6 tablet:tablet-text-preset-5 text-center tablet:text-left"
+        >
+          <span class="opacity-25 mr-2">01</span>PICK YOUR DESTINATION
+        </h1>
+      </div>
+      <div
+        class="w-auto h-auto mx-6 mt-6 tablet:mx-0 tablet:my-0 grid columns-1 grid-rows-[29%_61%] tablet:grid-rows-[50%_50%] desktop:grid-cols-[50%_50%] desktop:grid-rows-none gap-8 text-center desktop:pt-36 dekstop:flex-grow desktop:min-h-full desktop:h-full desktop:justify-center desktop:items-center"
+      >
+        <div
+          class="row-start-1 desktop:col-start-1 flex flex-col items-center justify-center select-none cursor-default"
+        >
+          <img
+            id="destination-image"
+            class="w-[150px] h-[150px] tablet:w-[300px] tablet:h-[300px] desktop:w-[480px] desktop:h-[480px] select-none cursor-default"
+            src="../assets/destination/image-moon.png"
+            alt="image-moon"
+          />
+        </div>
+        <div
+          class="row-start-2 desktop:row-start-1 desktop:col-start-2 desktop:flex desktop:flex-col desktop:items-start desktop:justify-center desktop:mx-12"
+        >
+          <nav
+            aria-label="Navigation de DESTINATION "
+            class="mx-6 desktop:mx-0"
+          >
+            <ul
+              class="flex flex-row space-x-4 h-8 justify-center gap-2 items-center w-full"
+            >
+              <li class="h-8 flex flex-row items-start">
+                <button
+                  class="h-8 p-0 flex items-start destination__navigation__btn focus:outline-none"
+                  id="btn-1"
+                  aria-label="Afficher la section MOON"
+                >
+                  MOON
+                </button>
+              </li>
+              <li class="h-8 flex flex-row items-start">
+                <button
+                  class="h-8 p-0 flex items-start destination__navigation__btn focus:outline-none"
+                  id="btn-2"
+                  aria-label="Afficher la section MARS"
+                >
+                  MARS
+                </button>
+              </li>
+              <li class="h-8 flex flex-row items-start">
+                <button
+                  class="h-8 p-0 flex items-start destination__navigation__btn focus:outline-none"
+                  id="btn-3"
+                  aria-label="Afficher la section EUROPA"
+                >
+                  EUROPA
+                </button>
+              </li>
+              <li class="h-8 flex flex-row items-start">
+                <button
+                  class="h-8 p-0 flex items-start destination__navigation__btn focus:outline-none"
+                  id="btn-4"
+                  aria-label="Afficher la section TITAN"
+                >
+                  TITAN
+                </button>
+              </li>
+            </ul>
+          </nav>
+          <div
+            class="destination__text__container flex-1 mx-1 tablet:w-[514px] desktop:w-full mt-8 flex flex-col items-center justify-start gap-4 desktop:items-start desktop:justify-start"
+          >
+            <h2
+              id="destination-title"
+              class="mobile-text-preset-2 h-16 tablet:tablet-text-preset-2 desktop:desktop-text-preset-2 tablet:h-24 desktop:h-28 desktop:ml-[-7px]"
+            >
+              MOON
+            </h2>
+            <p
+              id="destination-description"
+              class="mobile-text-preset-9 mx-1 w-full flex-1 tablet:tablet-text-preset-9 desktop:desktop-text-preset-9 text-customBlue300 text-center desktop:text-left overflow-clip"
+            >
+              See our planet as you’ve never seen it before. A perfect relaxing
+              trip away to help regain perspective and come back refreshed.
+              While you’re there, take in some history by visiting the Luna 2
+              and Apollo 11 landing sites.
+            </p>
+          </div>
+          <div
+            class="destination__line w-full border-b-2 border-white h-6 opacity-25"
+          ></div>
+          <div
+            class="destination__statistics mt-6 desktop:w-full flex flex-col tablet:flex-row items-center tablet:justify-center desktop:grid desktop:grid-cols-[50%_50%] gap-6 text-center desktop:text-left desktop:items-start desktop:justify-start"
+          >
+            <div
+              class="destination__distances flex flex-col items-center gap-3 desktop:col-start-1 desktop:items-start"
+            >
+              <h3 class="desktop-text-preset-7 h-4 text-customBlue300">
+                AVG. DISTANCE
+              </h3>
+              <h4 id="destination-distance" class="desktop-text-preset-6 h-8">
+                384.400 KM
+              </h4>
+            </div>
+            <div
+              class="destination__time flex flex-col items-center gap-3 desktop:col-start-2 desktop:items-start"
+            >
+              <h3 class="desktop-text-preset-7 h-4 text-customBlue300">
+                EST. TRAVEL TIME
+              </h3>
+              <h4 id="destination-travel" class="desktop-text-preset-6 h-8">
+                3 DAYS
+              </h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./main.js"></script>
+  </body>
+</html>

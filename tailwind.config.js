@@ -3,13 +3,15 @@ const plugin = require("tailwindcss/plugin"); // Importation du plugin
 
 module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{html,js}", // Inclure tous les fichiers .html et .js dans le dossier src
+    "./src/index.html",
+    "./src/**/*.html", // Les autres pages HTML
+    "./components/**/*.js", // Modules réutilisables comme une barre de navigation
   ],
   theme: {
     extend: {
       colors: {
         customBlue900: "#0b0d17",
+        customBlue900Hover: "#0b0d1780",
         customBlue300: "#d0d6f9",
         customWhite: "#ffffff",
       },
@@ -99,7 +101,7 @@ module.exports = {
           fontSize: "1rem",
           letterSpacing: "0px",
           lineHeight: "180%",
-          fontFamily: "Bellefair, sans-serif",
+          fontFamily: "Barlow Condensed, sans-serif",
           fontWeight: "400",
         },
         ".desktop-text-preset-1": {
